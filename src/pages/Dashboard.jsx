@@ -23,8 +23,8 @@ const Dashboard = () => {
       try {
         setLoading(true);
         const [incomeRes, expenseRes] = await Promise.all([
-          axios.get('http://localhost:3000/api/income', { headers }),
-          axios.get('http://localhost:3000/api/expense', { headers }),
+          axios.get('https://dhaqaaleeyeserver.onrender.com/api/income', { headers }),
+          axios.get('https://dhaqaaleeyeserver.onrender.com/api/expense', { headers }),
         ]);
         setIncomes(incomeRes.data);
         setExpenses(expenseRes.data);

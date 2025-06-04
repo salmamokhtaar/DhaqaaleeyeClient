@@ -16,7 +16,7 @@ const Expense = () => {
   const fetchExpenses = async () => {
     try {
       setLoading(true);
-      const res = await axios.get('http://localhost:3000/api/expense', {
+      const res = await axios.get('https://dhaqaaleeyeserver.onrender.com/api/expense', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setExpenses(res.data);
@@ -33,12 +33,12 @@ const Expense = () => {
     e.preventDefault();
     try {
       if (editingId) {
-        await axios.put(`http://localhost:3000/api/expense/${editingId}`, formData, {
+        await axios.put(`https://dhaqaaleeyeserver.onrender.com/api/expense/${editingId}`, formData, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         });
         toast.success('Expense updated successfully');
       } else {
-        await axios.post('http://localhost:3000/api/expense', formData, {
+        await axios.post('https://dhaqaaleeyeserver.onrender.com/api/expense', formData, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         });
         toast.success('Expense added successfully');
@@ -61,7 +61,7 @@ const Expense = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this expense?')) {
       try {
-        await axios.delete(`http://localhost:3000/api/expense/${id}`, {
+        await axios.delete(`https://dhaqaaleeyeserver.onrender.com/api/expense/${id}`, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         });
         toast.success('Expense deleted successfully');

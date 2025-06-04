@@ -17,12 +17,12 @@ const Login = () => {
  const handleSubmit = async (e) => {
   e.preventDefault();
   try {
-    const res = await axios.post('http://localhost:3000/api/auth/login', formData);
+    const res = await axios.post('https://dhaqaaleeyeserver.onrender.com/api/auth/login', formData);
     const token = res.data.token;
     localStorage.setItem('token', token);
 
     // Fetch the logged-in user's full data including role
-    const userRes = await axios.get('http://localhost:3000/api/auth/me', {
+    const userRes = await axios.get('https://dhaqaaleeyeserver.onrender.com/api/auth/me', {
       headers: { Authorization: `Bearer ${token}` }
     });
 

@@ -32,9 +32,9 @@ const AdminDashboard = () => {
 
         // Fetch all data in parallel
         const [usersRes, incomesRes, expensesRes] = await Promise.all([
-          axios.get("http://localhost:3000/api/users", config),
-          axios.get("http://localhost:3000/api/income/admin", config),
-          axios.get("http://localhost:3000/api/expense/admin", config)
+          axios.get("https://dhaqaaleeyeserver.onrender.com/api/users", config),
+          axios.get("https://dhaqaaleeyeserver.onrender.com/api/income/admin", config),
+          axios.get("https://dhaqaaleeyeserver.onrender.com/api/expense/admin", config)
         ]);
 
         // Calculate totals and prepare recent transactions

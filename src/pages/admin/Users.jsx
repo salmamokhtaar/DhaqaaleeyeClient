@@ -22,7 +22,7 @@ const Users = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:3000/api/users", {
+      const response = await axios.get("https://dhaqaaleeyeserver.onrender.com/api/users", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUsers(response.data);
@@ -41,7 +41,7 @@ const Users = () => {
 
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:3000/api/users/${userId}`, {
+      await axios.delete(`https://dhaqaaleeyeserver.onrender.com/api/users/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUsers(users.filter((user) => user._id !== userId));
@@ -56,7 +56,7 @@ const Users = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.put(
-        `http://localhost:3000/api/users/${userId}`,
+        `https://dhaqaaleeyeserver.onrender.com/api/users/${userId}`,
         updatedData,
         {
           headers: { Authorization: `Bearer ${token}` },

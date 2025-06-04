@@ -14,7 +14,7 @@ const AdminExpenses = () => {
   const fetchExpenses = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:3000/api/expense/admin", {
+      const res = await axios.get("https://dhaqaaleeyeserver.onrender.com/api/expense/admin", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setExpenses(res.data);
@@ -34,7 +34,7 @@ const AdminExpenses = () => {
           label: "Yes",
           onClick: async () => {
             try {
-              await axios.delete(`http://localhost:3000/api/expense/${id}`, {
+              await axios.delete(`https://dhaqaaleeyeserver.onrender.com/api/expense/${id}`, {
                 headers: { Authorization: `Bearer ${token}` },
               });
               toast.success("Expense deleted");
@@ -52,7 +52,7 @@ const AdminExpenses = () => {
   const handleEditSubmit = async () => {
     try {
       await axios.put(
-        `http://localhost:3000/api/expense/${editData._id}`,
+        `https://dhaqaaleeyeserver.onrender.com/api/expense/${editData._id}`,
         editData,
         {
           headers: { Authorization: `Bearer ${token}` },

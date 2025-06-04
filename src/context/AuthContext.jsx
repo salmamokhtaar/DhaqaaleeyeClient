@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
       const token = localStorage.getItem('token');
       if (token) {
         try {
-          const res = await axios.get('http://localhost:3000/api/auth/me', {
+          const res = await axios.get('https://dhaqaaleeyeserver.onrender.com/api/auth/me', {
             headers: { Authorization: `Bearer ${token}` }
           });
           setUser(res.data); // 🔥 this includes name, email, role, etc.

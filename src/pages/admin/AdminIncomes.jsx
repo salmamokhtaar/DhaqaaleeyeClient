@@ -17,7 +17,7 @@ const AdminIncomes = () => {
   const fetchIncomes = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:3000/api/income/admin", {
+      const res = await axios.get("https://dhaqaaleeyeserver.onrender.com/api/income/admin", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setIncomes(res.data);
@@ -37,7 +37,7 @@ const AdminIncomes = () => {
           label: 'Yes',
           onClick: async () => {
             try {
-              await axios.delete(`http://localhost:3000/api/income/${id}`, {
+              await axios.delete(`https://dhaqaaleeyeserver.onrender.com/api/income/${id}`, {
                 headers: { Authorization: `Bearer ${token}` },
               });
               toast.success("Income deleted");
@@ -56,7 +56,7 @@ const AdminIncomes = () => {
 
   const handleEditSubmit = async () => {
     try {
-      await axios.put(`http://localhost:3000/api/income/${editData._id}`, editData, {
+      await axios.put(`https://dhaqaaleeyeserver.onrender.com/api/income/${editData._id}`, editData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success("Income updated");

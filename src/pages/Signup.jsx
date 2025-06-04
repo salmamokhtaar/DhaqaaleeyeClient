@@ -15,7 +15,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/api/auth/register', formData);
+      const response = await axios.post('https://dhaqaaleeyeserver.onrender.com/api/auth/register', formData);
       localStorage.setItem('token', response.data.token);
       navigate('/login');
     } catch (error) {

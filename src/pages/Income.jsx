@@ -16,7 +16,7 @@ const Income = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem('token');
-      const res = await axios.get('http://localhost:3000/api/income', {
+      const res = await axios.get('https://dhaqaaleeyeserver.onrender.com/api/income', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setIncomes(res.data);
@@ -42,12 +42,12 @@ const Income = () => {
     const token = localStorage.getItem('token');
     try {
       if (editingId) {
-        await axios.put(`http://localhost:3000/api/income/${editingId}`, formData, {
+        await axios.put(`https://dhaqaaleeyeserver.onrender.com/api/income/${editingId}`, formData, {
           headers: { Authorization: `Bearer ${token}` },
         });
         toast.success('Income updated successfully');
       } else {
-        await axios.post('http://localhost:3000/api/income', formData, {
+        await axios.post('https://dhaqaaleeyeserver.onrender.com/api/income', formData, {
           headers: { Authorization: `Bearer ${token}` },
         });
         toast.success('Income added successfully');
@@ -75,7 +75,7 @@ const Income = () => {
     if (window.confirm('Are you sure you want to delete this income?')) {
       const token = localStorage.getItem('token');
       try {
-        await axios.delete(`http://localhost:3000/api/income/${id}`, {
+        await axios.delete(`https://dhaqaaleeyeserver.onrender.com/api/income/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         toast.success('Income deleted successfully');
